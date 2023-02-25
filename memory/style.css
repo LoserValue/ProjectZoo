@@ -1,0 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap');
+html{
+    font-family: 'Fredoka', sans-serif;
+}body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f7ff;
+    overflow: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.card-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.card {
+    height: 30vh;
+    width: 18vh;
+    flex-basis: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: white;
+    margin: 30px 5%;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.card:hover{
+    background-color: rgb(245, 244, 244);
+}

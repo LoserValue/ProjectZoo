@@ -20,6 +20,23 @@ var mousePos={x:0, y:0};
 var HEIGHT, WIDTH;
 
 var Game = {speedGame: 0.002};
+
+const manager = new THREE.LoadingManager();
+manager.onStart = function()
+{
+	console.log("avvio");
+}
+manager.onLoad = function()
+{
+	console.log("Loading complete!");
+}
+manager.onProgress = function () {
+
+	console.log("+1");
+
+};
+
+
 function createScene()
 {
 	HEIGHT = document.getElementById("scene").clientHeight;
