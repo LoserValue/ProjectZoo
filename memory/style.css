@@ -1,19 +1,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap');
-html{
-    font-family: 'Fredoka', sans-serif;
-}body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f7ff;
-    overflow: hidden;
-}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+html{
+    font-family: 'Fredoka', sans-serif;
+}
+body {
+    background-color: #f4f7ff;
+}
+h1{
+    font-size:45px;
+    color: #344854;
+    margin-top: 25px;
+    text-align: center;
+    position: relative;
 }
 .card-container{
     display: flex;
@@ -23,21 +27,71 @@ html{
     margin-top: 50px;
 }
 .card {
-    height: 30vh;
-    width: 18vh;
+    height: 35vh;
     flex-basis: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 30px;
+    padding: 35px;
     border-radius: 15px;
     background-color: white;
-    margin: 30px 5%;
+    margin: 30px 15%;
     position: relative;
     z-index: 1;
     cursor: pointer;
+    perspective: 1000px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
 }
 .card:hover{
     background-color: rgb(245, 244, 244);
+}
+  
+  /* Position the front and back side */
+.card-front, .card-back {
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+  
+  /* Style the back side */
+.card .card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+@media only screen and (min-width:768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .card {
+        flex-basis: 45%;
+        margin: 2.5%
+    }
+/*     #modelli .modelli-image {
+        left: 220px;
+    }  */
+}
+
+@media only screen and (min-width: 1200px){
+    .card{
+        flex-direction:column;
+        flex-basis: 10%;
+        margin: 1.5%;
+    }
+    
+/*     #modelli .modelli-image {
+        width: 40%;
+        height: 40%;
+        top: 10px;
+        left: 180px;
+    }  
+*/
 }
