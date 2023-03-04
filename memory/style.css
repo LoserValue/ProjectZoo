@@ -13,11 +13,24 @@ body {
     background-color: #f4f7ff;
 }
 h1{
+    position: relative;
     font-size:45px;
     color: #344854;
     margin-top: 25px;
     text-align: center;
-    position: relative;
+}
+.cronometro{
+    position:absolute;
+    right: 90%;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.counter{
+    position:absolute;
+    left: 90%;
 }
 .card-container{
     display: flex;
@@ -66,15 +79,96 @@ h1{
 .card.flipped {
     transform: rotateY(180deg);
 }
+.message-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 15px;
+    height: 400px;
+    width: 650px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background-color: #f4f4ff;
+    text-align:center;
+    z-index: 10;
+}
+.onEnter{
+    -webkit-animation: onEnter 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: onEnter 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.onExit{
+    -webkit-animation: onExit 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: onExit 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+.rematch-button
+{
+    margin: 70px;
+    transition: transform .7s ease-in-out;
+}
+.rematch-button:hover
+{
+    transform: rotate(180deg);
+}
+
+@-webkit-keyframes onEnter {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes onEnter {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+@-webkit-keyframes onExit {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+}
+@keyframes onExit {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+      opacity: 0;
+    }
+}
+
 @media only screen and (min-width:768px) {
     h1 {
         font-size: 3rem;
     }
-
     .card {
         flex-basis: 45%;
         margin: 2.5%
-    }
+    } 
 /*     #modelli .modelli-image {
         left: 220px;
     }  */
@@ -86,7 +180,6 @@ h1{
         flex-basis: 10%;
         margin: 1.5%;
     }
-    
 /*     #modelli .modelli-image {
         width: 40%;
         height: 40%;

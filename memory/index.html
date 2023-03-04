@@ -4,8 +4,16 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Memorizza le carte</h1>
+        <div class="header">
+            <h1 class="cronometro" id="cronometro">00:00</h1>
+            <h1 class="title">Memorizza le carte</h1>
+            <h1 id="counter" class="counter">0</h1>
+        </div>
         <div class="card-container" id="container-card"></div>
+        <div class="message-box" style="display:none">
+            <h1>Hai vinto!</h1>
+            <img src="asset/refresh-cw.svg" id="rematch-button" class="rematch-button" style="height: 35%;">
+        </div>
         <script src="app.js"></script>
     </body>
 </html>
