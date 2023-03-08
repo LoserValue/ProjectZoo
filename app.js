@@ -1,7 +1,5 @@
 //cambiare versione della libreria three.min.js
-
-
-window.addEventListener('load', init, false);
+window.addEventListener('load', introScene, false);
 var Colors = {
     green:0x458248,
     red:0xf25346,
@@ -13,6 +11,7 @@ var Colors = {
     blue:0x68c3c0,
 
 };
+var introFinished = false
 var scene,
 		camera, fieldOfView, aspectRatio, nearPlane, farPlane, HEIGHT, WIDTH,
 		renderer, container;
@@ -21,20 +20,7 @@ var HEIGHT, WIDTH;
 
 var Game = {speedGame: 0.002};
 
-const manager = new THREE.LoadingManager();
-manager.onStart = function()
-{
-	console.log("avvio");
-}
-manager.onLoad = function()
-{
-	console.log("Loading complete!");
-}
-manager.onProgress = function () {
 
-	console.log("+1");
-
-};
 
 
 function createScene()
@@ -44,7 +30,6 @@ function createScene()
 
     scene = new THREE.Scene();
 	scene.fog = new THREE.Fog(0xf7d9aa, 100, 950);
-
     aspectRatio = WIDTH / HEIGHT;
 	fieldOfView = 60;
 	nearPlane = 1;
@@ -435,7 +420,30 @@ Ground.prototype.moveGround = function (){
     ground.mesh.rotation.z += Game.speedGame;
     forest.mesh.rotation.z += Game.speedGame;
 }
+function parallax(e) {
+	document.querySelectorAll(".object-parallex").forEach((shift) => {
+		const movingValue = shift.getAttribute("data-value");
+		const x = (e.clientX * movingValue) / 250;
+		const y = (e.clientY * movingValue) / 250;
 
+		shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+	  });
+}
+function introScene()
+{
+	init();
+	if(!introFinished)
+	{
+		document.addEventListener("mousemove", parallax);
+		setTimeout(()=>{
+			document.getElementById("intro").style.visibility = "hidden";
+			document.getElementById("intro").style.opacity = 0;
+			introFinished = true;
+		}, 10000);
+	}
+
+
+}
 function init(){
     createScene();
     createLights();
